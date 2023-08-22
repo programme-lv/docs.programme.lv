@@ -1,9 +1,14 @@
-FROM ruby:latest
+# --- Build Stage ---
+FROM ruby:latest as builder
 ENV LANG C.UTF-8
-RUN apt-get update -qq && apt-get install -y nodejs
 WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler && bundle install
+RUN gem install bundler jekyll && bundle install
 COPY . .
-EXPOSE 4000
-CMD ["bundle", "exec", "jekyll", "serve", "--host", "0.0.0.0"]
+RUN jekyll build
+
+# --- Serve Stage ---
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /usr/src/app/_site /usr/share/nginx/html
+EXPOSE 80
