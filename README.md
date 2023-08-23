@@ -1,10 +1,10 @@
 ---
 layout: home
-title: Jekyll Gitbook Theme
+title: Programme.lv documentation
 permalink: /
 ---
 
-Make Jelly site have a GitBook look!
+Make Jelly site have a GitBook look! Test test test
 
 ## Demo
 
