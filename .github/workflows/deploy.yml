@@ -19,8 +19,8 @@ jobs:
         images: krisjanisp/proglv-docs
         tags: |
           type=schedule
-          type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
           type=sha
+          type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
