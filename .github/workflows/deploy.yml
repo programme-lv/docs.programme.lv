@@ -18,8 +18,6 @@ jobs:
       with:
         images: krisjanisp/proglv-docs
         tags: |
-          type=schedule
-          type=sha
           type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
 
     - name: Login to DockerHub
@@ -45,13 +43,11 @@ jobs:
       run: mkdir -p kubernetes
 
     - name: Download manifest
-      run: wget https://raw.githubusercontent.com/programme-lv/devops/main/kubernetes/docs_deployment.yaml -P kubernetes/
+      run: wget https://raw.githubusercontent.com/programme-lv/devops/main/kubernetes/docs.programme.lv/docs_deployment.yaml -P kubernetes/
 
     - name: Replace manifest tokens
       run: |
-        sed -e 's/__IMAGE_AUTHOR__/krisjanisp/g' \
-            -e 's/__IMAGE_NAME__/proglv-docs/g' \
-            -e 's/__IMAGE_TAG__/${{env.DOCKER_METADATA_OUTPUT_VERSION}}/g' \
+        sed -e 's/latest/${{env.DOCKER_METADATA_OUTPUT_VERSION}}/g' \
             < ./kubernetes/docs_deployment.yaml > ./kubernetes/gucci_deployment.yaml
 
     - name: Log manifest

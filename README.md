@@ -4,7 +4,7 @@ title: Programme.lv documentation
 permalink: /
 ---
 
-Make Jelly site have a GitBook look! Test test test
+Make Jelly site have a GitBook look! Test test test :)
 
 ## Demo
 
