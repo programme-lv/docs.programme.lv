@@ -58,7 +58,7 @@ jobs:
       run: kubectl apply -f ./kubernetes/gucci_deployment.yaml
 
     - name: Verify deployment
-      run: timeout 30s kubectl rollout status deployment/docs -n backend
+      run: timeout 30s kubectl rollout status deployment/docs -n proglv
 
     - name: Display running pods
       run: kubectl get pods -n backend
