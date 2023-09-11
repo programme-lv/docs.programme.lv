@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler jekyll && bundle install
 COPY . .
-RUN jekyll build
+RUN bundle exec jekyll build
 
 # --- Serve Stage ---
 FROM nginx:alpine
