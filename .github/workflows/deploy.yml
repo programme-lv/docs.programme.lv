@@ -17,8 +17,6 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: krisjanisp/proglv-docs
-        tags: |
-          type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
