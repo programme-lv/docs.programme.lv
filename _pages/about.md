@@ -1,9 +1,11 @@
 ---
 title: About
-author: Tao He
-date: 2022-02-04
+author: Veronika Lohmanova
+date: 2023-10-10
 category: Jekyll
 layout: post
 ---
 
-This is an about page.
+Programme.lv documentation.
+
+Stay tuned ✌️
